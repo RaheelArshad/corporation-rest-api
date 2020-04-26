@@ -3,13 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Interest } from './entity/interest.entity';
 import { User } from './entity/user.entity';
-import { UserInterest } from './entity/user-interest.entity';
 import { InterestModule } from './interest/interest.module';
 import { UserModule } from './user/user.module';
+import { Interest } from './entity/interest.entity';
 import { UserInterestModule } from './user-interest/user-interest.module';
-
+import { UserInterestEntity } from './entity/user-interest-entity';
+import { NotificationTemplateController } from './notification-template/notification-template.controller';
 @Module({
   imports: [ConfigModule.forRoot(),
     TypeOrmModule.forRoot({ 
@@ -20,7 +20,7 @@ import { UserInterestModule } from './user-interest/user-interest.module';
       database: "testDb",
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      entities: [Interest,User,UserInterest],
+      entities: [Interest,User,UserInterestEntity],
       migrations: ['src/migration/**/*.ts'],
       subscribers: ['src/subscriber/**/*.ts'] ,
      cli: {
@@ -30,11 +30,10 @@ import { UserInterestModule } from './user-interest/user-interest.module';
    }
     }),       
        InterestModule,
-       UserModule,
-       UserInterestModule
-      
+       UserModule,       
+       UserInterestModule      
   ],
-  controllers: [AppController],
+  controllers: [AppController, NotificationTemplateController],
   providers: [AppService],
 })
 export class AppModule {}

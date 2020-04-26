@@ -1,32 +1,34 @@
 
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Interest } from 'src/entity/interest.entity';
-import { UpdateResult, DeleteResult } from  'typeorm';
+import { Repository } from 'typeorm';
+import { InterestCreateDto } from './interest-create-dto';
+import { InterestUpdateDto } from './interest-update-dto';
+import { Interest } from '../entity/interest.entity';
 
 @Injectable()
-export class InterestService {
+export class InterestService{
     constructor(
         @InjectRepository(Interest)
-        private interestRepository: Repository<Interest>,
+        private readonly interestRepository: Repository<Interest>        
     ) {
-
+        
      }
-     async  findAll(): Promise<Interest[]> {
-        return await this.interestRepository.find();
-    }
+     async getAllInterests(): Promise<Interest[]> {
+        return this.interestRepository.find();
+      }
+      async createInterest(dto: InterestCreateDto): Promise<Interest> {        
+        const interest = Interest.fromCreateDto(dto);    
+        return await this.interestRepository.save(interest);      
+      }
+      async updateInterest(id: string, dto: InterestUpdateDto) {               
+        const existing = await this.interestRepository.findOne(id);
+        const updated = Interest.fromUpdateDto(dto); 
+        var result = Object.assign(existing,updated);        
+        return this.interestRepository.save(result);
+      }
 
-    async  create(interest: Interest): Promise<Interest> {
-        debugger;
-        return await this.interestRepository.save(interest);
-    }
-
-    async update(interest: Interest): Promise<UpdateResult> {
-        return await this.interestRepository.update(interest.id, interest);
-    }
-
-    async delete(id): Promise<DeleteResult> {
-        return await this.interestRepository.delete(id);
-    }
+      async deleteInterest(id: string) {       
+        return this.interestRepository.delete(id);
+      }
 }

@@ -1,15 +1,13 @@
 import { Module } from '@nestjs/common';
-import { UserInterestController } from './user-interest.controller';
 import { UserInterestService } from './user-interest.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserInterest } from 'src/entity/user-interest.entity';
+import { UserInterestEntity } from '../entity/user-interest-entity';
+import { UserInterestController } from './user-interest.controller';
 
-@Module({  
-    imports:[TypeOrmModule.forFeature([UserInterest])] ,
-    controllers:[UserInterestController],
-    providers: [UserInterestService],
-    exports: [UserInterestService]
+@Module({
+  imports:[TypeOrmModule.forFeature([UserInterestEntity])],
+  controllers:[UserInterestController],
+  providers: [UserInterestService],
+  exports:[UserInterestService]
 })
-export class UserInterestModule {
-    
-}
+export class UserInterestModule {}
