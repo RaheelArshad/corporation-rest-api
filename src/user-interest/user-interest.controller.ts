@@ -5,8 +5,7 @@ import { UserInterestCreateDto } from './user-interest-create-dto';
 import { DeleteResult } from 'typeorm';
 import { UserInterestDto } from './user-interest-dto';
 import { UserInterestUpdateDto } from './user-interest-update-dto';
-import { ObjectID } from 'mongodb';
-import { UserInterestEntity } from 'src/entity/user-interest-entity';
+import { UserInterestEntity } from '../entity/user-interest-entity';
 
 @Controller('userinterests')
 @ApiTags("userinterests")
@@ -19,6 +18,15 @@ export class UserInterestController {
     async getAllUserInterests() {
       return this.userInterestService.getAllUserInterests();
     } 
+
+    @Get(":userId")
+    @ApiOperation({ summary: "Get Interests By UserId" })
+    async findInterestsByUser(
+      @Param("userId") userId: string,
+      ) {
+      return this.userInterestService.getInterestsByUser(userId);
+    } 
+    
     @Post("/")
     @ApiOperation({ summary: "Create a user interests" })    
     async createUserInterest(@Body() dto: UserInterestCreateDto): Promise<UserInterestDto> {

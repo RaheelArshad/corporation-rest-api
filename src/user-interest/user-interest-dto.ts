@@ -9,15 +9,15 @@ export class UserInterestDto {
     @ApiProperty()
     id: ObjectID; 
     @ApiProperty()     
-    userId:string;
+    userId:ObjectID;
     @ApiProperty()
-    interestId:string;
-    @ApiProperty() 
-    @Type(() => UserDto)   
-    user: UserDto;   
-    @ApiProperty()    
-    @Type(() => InterestDto)
-    interest: InterestDto;
+    interestId:ObjectID;
+    // @ApiProperty() 
+    // @Type(() => UserDto)   
+    // user: UserDto;   
+    // @ApiProperty()    
+    // @Type(() => InterestDto)
+    // interest: InterestDto;
     @ApiProperty()
     interestLevel: number;
 }

@@ -7,12 +7,12 @@ export class UserInterestUpdateDto {
     userId:string;
     @ApiProperty()
     interestId:string;
-    @ApiProperty()
-    @Type(() => UserUpdateDto)
-    user: UserUpdateDto; 
-    @ApiProperty()
-    @Type(() => InterestUpdateDto)
-    interest: InterestUpdateDto;  
+    // @ApiProperty()
+    // @Type(() => UserUpdateDto)
+    // user: UserUpdateDto; 
+    // @ApiProperty()
+    // @Type(() => InterestUpdateDto)
+    // interest: InterestUpdateDto;  
     @ApiProperty()  
     interestLevel: number;
 }

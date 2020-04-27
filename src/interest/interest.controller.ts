@@ -6,7 +6,7 @@ import { InterestCreateDto } from './interest-create-dto';
 import { DeleteResult } from 'typeorm';
 import { InterestUpdateDto } from './interest-update-dto';
 import { ObjectID } from 'mongodb';
-import { Interest } from 'src/entity/interest.entity';
+import { Interest } from '../entity/interest.entity';
 
 @Controller('interest')
 @ApiTags("interests")

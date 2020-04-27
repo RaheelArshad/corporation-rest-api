@@ -8,12 +8,12 @@ export class UserInterestCreateDto {
     userId:string;
     @ApiProperty()
     interestId:string;
-    @ApiProperty()
-    @Type(() => UserInsertDto)
-    user: UserInsertDto; 
-    @ApiProperty()
-    @Type(() => InterestCreateDto)
-    interest: InterestCreateDto;  
+    // @ApiProperty()
+    // @Type(() => UserInsertDto)
+    // user: UserInsertDto; 
+    // @ApiProperty()
+    // @Type(() => InterestCreateDto)
+    // interest: InterestCreateDto;  
     @ApiProperty()  
     interestLevel: number;
 }
