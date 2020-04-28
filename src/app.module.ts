@@ -11,6 +11,12 @@ import { UserInterestModule } from './user-interest/user-interest.module';
 import { UserInterestEntity } from './entity/user-interest-entity';
 import { UserClaimModule } from './user-claim/user-claim.module';
 import { UserClaim } from './entity/user-claim.entity';
+import { DeviceModule } from './device/device.module';
+import { Tenant } from './entity/tenant.entity';
+import { Device } from './entity/device.entity';
+import { Campaign } from './entity/campaign.entity';
+import { TenantModule } from './tenant/tenant.module';
+import { CampaignModule } from './campaign/campaign.module';
 @Module({
   imports: [ConfigModule.forRoot(),
     TypeOrmModule.forRoot({ 
@@ -21,7 +27,7 @@ import { UserClaim } from './entity/user-claim.entity';
       database: "testDb",
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      entities: [Interest,User,UserInterestEntity, UserClaim],
+      entities: [Interest,User,UserInterestEntity, UserClaim,Tenant,Device,Campaign],
       migrations: ['src/migration/**/*.ts'],
       subscribers: ['src/subscriber/**/*.ts'] ,
      cli: {
@@ -33,7 +39,10 @@ import { UserClaim } from './entity/user-claim.entity';
        InterestModule,
        UserModule,       
        UserInterestModule,
-       UserClaimModule      
+       UserClaimModule,
+       TenantModule,
+       DeviceModule,
+       CampaignModule      
   ],
   controllers: [AppController],
   providers: [AppService],

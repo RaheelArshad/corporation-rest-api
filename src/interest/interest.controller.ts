@@ -1,11 +1,9 @@
 import { Controller, Get, Body, Post, Put, Param, Delete } from '@nestjs/common';
 import { InterestService } from './interest.service';
-import { ApiTags, ApiOperation, ApiResponse, ApiBadRequestResponse } from '@nestjs/swagger';
-import { InterestDto } from './interest-dto';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { InterestCreateDto } from './interest-create-dto';
 import { DeleteResult } from 'typeorm';
 import { InterestUpdateDto } from './interest-update-dto';
-import { ObjectID } from 'mongodb';
 import { Interest } from '../entity/interest.entity';
 
 @Controller('interest')

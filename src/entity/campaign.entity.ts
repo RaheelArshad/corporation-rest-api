@@ -1,7 +1,7 @@
 import { ObjectIdColumn, Column, Entity } from "typeorm";
 import { ObjectID } from "mongodb";
 @Entity('compaigns')
-export class Compaign {
+export class Campaign {
     @ObjectIdColumn() id: ObjectID;
     @Column() tenantId: ObjectID;
     @Column() name: string;

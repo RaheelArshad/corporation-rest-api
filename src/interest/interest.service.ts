@@ -24,7 +24,7 @@ export class InterestService{
       async updateInterest(id: string, dto: InterestUpdateDto) {               
         const existing = await this.interestRepository.findOne(id);
         const updated = Interest.fromUpdateDto(dto); 
-        var result = Object.assign(existing,updated);        
+        const result = Object.assign(existing,updated);        
         return this.interestRepository.save(result);
       }
 
