@@ -11,7 +11,7 @@ export class UserClaimController {
     }
     @Post("/")
     @ApiOperation({ summary: "Create a user claim" })
-    async createInterest(@Body() dto: UserClaimDto): Promise<any> {
+    async createClaim(@Body() dto: UserClaimDto): Promise<any> {
        
       return this.userClaimService.create(dto);
     }
