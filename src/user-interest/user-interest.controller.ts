@@ -19,10 +19,10 @@ export class UserInterestController {
       return this.userInterestService.getAllUserInterests();
     } 
 
-    @Get(":userId")
+    @Get("by-user-id/:Id")
     @ApiOperation({ summary: "Get Interests By UserId" })
     async findInterestsByUser(
-      @Param("userId") userId: string,
+      @Param("Id") userId: string,
       ) {
       return this.userInterestService.getInterestsByUser(userId);
     } 

@@ -9,7 +9,8 @@ import { UserModule } from './user/user.module';
 import { Interest } from './entity/interest.entity';
 import { UserInterestModule } from './user-interest/user-interest.module';
 import { UserInterestEntity } from './entity/user-interest-entity';
-import { NotificationTemplateController } from './notification-template/notification-template.controller';
+import { UserClaimModule } from './user-claim/user-claim.module';
+import { UserClaim } from './entity/user-claim.entity';
 @Module({
   imports: [ConfigModule.forRoot(),
     TypeOrmModule.forRoot({ 
@@ -20,7 +21,7 @@ import { NotificationTemplateController } from './notification-template/notifica
       database: "testDb",
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      entities: [Interest,User,UserInterestEntity],
+      entities: [Interest,User,UserInterestEntity, UserClaim],
       migrations: ['src/migration/**/*.ts'],
       subscribers: ['src/subscriber/**/*.ts'] ,
      cli: {
@@ -31,9 +32,10 @@ import { NotificationTemplateController } from './notification-template/notifica
     }),       
        InterestModule,
        UserModule,       
-       UserInterestModule      
+       UserInterestModule,
+       UserClaimModule      
   ],
-  controllers: [AppController, NotificationTemplateController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

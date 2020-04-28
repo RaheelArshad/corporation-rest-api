@@ -4,7 +4,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserInsertDto } from './user-insert-dto';
 import { UserUpdateDto } from './user-update-dto';
-import { ObjectID } from 'mongodb';
 
 @Injectable()
 export class UserService {
@@ -16,13 +15,11 @@ export class UserService {
        
      }
      async getAllUsers(): Promise<User[]> {
-        var result = this.userRepository.find();
-        return result;
-
+          return this.userRepository.find();
       }
       async createUser(dto: UserInsertDto): Promise<User> {        
         const user = User.fromCreateDto(dto);    
-        var created = await this.userRepository.save(user); 
+        const created = await this.userRepository.save(user); 
         return created;      
       }
       async updateUser(id: string, dto: UserUpdateDto) {        

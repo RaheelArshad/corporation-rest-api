@@ -6,7 +6,6 @@ import { UserDto } from './user-dto';
 import { UserUpdateDto } from './user-update-dto';
 import { UserInsertDto } from './user-insert-dto';
 import { User } from '../entity/user.entity';
-import { ObjectID } from 'mongodb';
 
 @Controller('user')
 @ApiTags("users")
