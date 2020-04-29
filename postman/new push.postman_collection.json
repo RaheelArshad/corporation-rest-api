@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "61df183b-e917-4fe3-a1cd-0d6d35321f01",
+		"name": "new push",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://fcm.googleapis.com/fcm/send",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "key=AAAAFzQVudY:APA91bExGmvNJZmdLxLYwYiBUa1RNaXsiLJqpTKWnmRV6ZyevUudITvFbp1XvdJuBskTWOZrKdcHeOYN2y1RmmQ7KLDMZ228cZgkFjIJJ6WYM7ok6TRnPkcqXzGJ57yOQJDQJgJxWs-o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"notification\": {\n    \"title\": \"Web Push Notifications\",\n    \"body\": \"Hey, Hello World\",\n    \"click_action\": \"https://pushnotification-d3034.web.app/home\"\n},\n\"to\": \"c42QCBj8PEErJM-s0i-Gcp:APA91bGgWDSklfwgEV_YWJAFkP1slfDlRTREWZC77QRE5pywd9OVhxMUyFLEJHeQp6dmN1smSYhYHhcolCS9NEaCLpgpxBBNbu0dgxV_kOTzVE6ExCZCQwm5tJ4MjQITI4NjdPtTO04L\"\n}"
+				},
+				"url": {
+					"raw": "https://fcm.googleapis.com/fcm/send",
+					"protocol": "https",
+					"host": [
+						"fcm",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"fcm",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

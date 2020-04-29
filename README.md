@@ -1,3 +1,38 @@
+
+## Task Done
+
+## change GET  /:userId for user interests
+
+Tenant {name:str, code:str, domain:str} Campaign {tenantId:fid, name:str, url:str} and Device {tenantId:fid, userId:id, userAgent:str, pushToken: str}
+
+Also can you change GET  /:userId for user interests . to GET /by-user-id/:id - the GET /:Id is always for get one record in REST
+
+
+
+##  Tenants controller POST only (create)
+##   UserClaim model with
+
+Tenants controller POST only (create), Devices no controller, just a service to findByTenantAgent(tenantCode, userAgent), create, update, delete. Campaign, drop this for now - forget I brought it up. 
+
+
+I want a UserClaim model with { email, phone, data: {}, tenantCode, userAgent, emailActivationCode, emailValidated, phoneActivisationCode, phoneValidated, isComplete:bool } 
+
+
+
+
+## UserClaimController POST  (Done &  but No logic & Only temp data & Hard coded return)
+
+
+UserClaimController POST which inserts the claim then sends an email or sms depending on if email or phone are null, then a POST :/id which will have a type (email, phone) and code (3 digit) as parameters.
+
+UserClaimSerice create (data) - should create 3 digit codes for email and or phone and return the object with the id, confirm (claimId, type, code) which checks the UserClaim with the claimId code matches and if so update the *Validated property, otherwise return an 401 error.   
+
+
+-----------------------------------------------------------------
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>

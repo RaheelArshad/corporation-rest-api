@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "b1b8c9d0-8848-43cc-9e02-2ab3a9fe55d1",
+		"name": "user-interests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createuserInterest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "userId",
+						"value": "5ea55dc8eecabf08dbc6c5b9",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "interestId",
+						"value": "5ea491991360e9430b3f2199",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"5ea55dc8eecabf08dbc6c5b9\",\n  \"interestId\": \"5ea491991360e9430b3f2199\",\n  \"interestLevel\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/userinterests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"userinterests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getuserAllinterest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/userinterests",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"userinterests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateuserinterest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"5ea55dc8eecabf08dbc6c5b9\",\n  \"interestId\": \"5ea491991360e9430b3f2199\",\n  \"interestLevel\": 9\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/userinterests/5ea6bd11ff66af11acefd260",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"userinterests",
+						"5ea6bd11ff66af11acefd260"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteuserinterest",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/userinterests/5ea5704a8482bf30e31d3ea3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"userinterests",
+						"5ea5704a8482bf30e31d3ea3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getInterestsByUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/userinterests/by-user-id/5ea55dc8eecabf08dbc6c5b9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"userinterests",
+						"by-user-id",
+						"5ea55dc8eecabf08dbc6c5b9"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
